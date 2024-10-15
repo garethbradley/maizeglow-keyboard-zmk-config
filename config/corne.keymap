@@ -62,13 +62,13 @@
             // |  TAB |     |     |     |     |     |   |     |  7  |  8  |  9  |     |      |
             // | CTRL |     |     |     |  UP |     |   |     |  4  |  5  |  6  |     |      |
             // | SHFT |     |     | LFT | DWN | RGT |   |     |  1  |  2  |  3  | RET |      |
-            //                    |     |     |     |   |     |     | ALT |
+            //                    |     |     | RET |   |     |     | ALT |
 
             bindings = <
 &trans  &trans  &trans    &trans    &trans     &trans    &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &trans   &trans  &trans
 &trans  &trans  &trans    &kp UP    &trans     &trans    &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &trans   &trans  &trans
 &trans  &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans    &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp RET  &trans  &trans
-                        &trans  &trans  &trans    &trans           &kp KP_NUMBER_0  &trans
+                          &trans    &trans     &kp RET   &trans           &kp KP_NUMBER_0  &trans
             >;
         };
     };
