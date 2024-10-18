@@ -10,5 +10,5 @@ features:
   # - display
   # - rgb backlight
 siblings:
-  - tukon_left
-  - tukon_right
+  - MaizeGlow_left
+  - MaizeGlow_right
