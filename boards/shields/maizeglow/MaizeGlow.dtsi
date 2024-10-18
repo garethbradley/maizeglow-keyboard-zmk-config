@@ -79,20 +79,20 @@
         // zephyr,display = &oled;
     };
     
-    // rgb_power: rgb_power {
-    //     // compatible = "power-domain-gpio";
-    //     // startup-delay-us = <200>;
-    //     // off-on-delay-us = <2000>;
-    //     // enable-gpios = <&pro_micro 9 GPIO_ACTIVE_HIGH>;
-    //     // power-domain = <&core_power_domain>;
-    //     // zephyr,pm-device-runtime-auto;
+    rgb_power: rgb_power {
+        // compatible = "power-domain-gpio";
+        // startup-delay-us = <200>;
+        // off-on-delay-us = <2000>;
+        // enable-gpios = <&pro_micro 9 GPIO_ACTIVE_HIGH>;
+        // power-domain = <&core_power_domain>;
+        // zephyr,pm-device-runtime-auto;
 
-    //     compatible = "zmk,ext-power-generic";
-	// 	label = "EXT_POWER";
-	// 	// label = "RGB_POWER";
-	// 	init-delay-ms = <200>;
-	// 	control-gpios = <&pro_micro 9 GPIO_ACTIVE_HIGH>;
-    // };
+        compatible = "zmk,ext-power-generic";
+		label = "EXT_POWER";
+		// label = "RGB_POWER";
+		init-delay-ms = <200>;
+		control-gpios = <&pro_micro 9 GPIO_ACTIVE_HIGH>;
+    };
 
     // oled_power: oled_power {
     //     compatible = "power-domain-gpio";
