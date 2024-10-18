@@ -19,6 +19,6 @@
 ---
 include:
   - board: nice_nano_v2
-    shield: MaizeGlow_left
+    shield: MaizeGlow_left nice_view
   - board: nice_nano_v2
-    shield: MaizeGlow_right
+    shield: MaizeGlow_right nice_view
