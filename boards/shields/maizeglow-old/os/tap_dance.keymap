@@ -1,8 +1,0 @@
-// NOT USED
-td_alt: tab_dance_alt {
-        label = "TAP_DANCE_ALT";
-        compatible = "zmk,behavior-tap-dance";
-        #binding-cells = <0>;
-        tapping-term-ms = <200>;
-        bindings = <&kp LALT>, <&mo NUMBER>;
-};
