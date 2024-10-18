@@ -25,12 +25,12 @@ config MAIZEGLOW_RGB_UNDERGLOW
     select ZMK_RGB_UNDERGLOW_AUTO_OFF_IDLE
     select ZMK_RGB_UNDERGLOW_AUTO_OFF_USB
 
-config MAIZEGLOW_DISPLAY
-    bool "MaizeGlow OLED Display"
-    default y
-    select ZMK_DISPLAY
-    select I2C
-    select SSD1306
+#config MAIZEGLOW_DISPLAY
+#    bool "MaizeGlow OLED Display"
+#    default y
+#    select ZMK_DISPLAY
+#    select I2C
+#    select SSD1306
 
 
 if LVGL
