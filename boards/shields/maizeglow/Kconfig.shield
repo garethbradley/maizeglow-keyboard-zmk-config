@@ -1,5 +1,11 @@
+# Copyright (c) 2020 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
 config SHIELD_MAIZEGLOW_LEFT
-    def_bool $(shields_list_contains, MaizeGlow_left)
+	def_bool $(shields_list_contains,MaizeGlow_left)
 
 config SHIELD_MAIZEGLOW_RIGHT
-    def_bool $(shields_list_contains, MaizeGlow_right)
+	def_bool $(shields_list_contains,MaizeGlow_right)
+
+# config SHIELD_ENKI42_DONGLE
+# 	 def_bool $(shields_list_contains,enki42_dongle)

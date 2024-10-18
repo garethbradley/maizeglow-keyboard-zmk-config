@@ -1,0 +1,14 @@
+file_format: "1"
+id: maiseglow
+name: MaizeGlow
+type: shield
+# url: https://github.com/foostan/crkbd/
+requires: [pro_micro]
+exposes: [i2c_oled]
+features:
+  - keys
+  # - display
+  # - rgb backlight
+siblings:
+  - MaizeGlow_left
+  - MaizeGlow_right

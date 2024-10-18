@@ -1,0 +1,5 @@
+config SHIELD_MAIZEGLOW_LEFT
+    def_bool $(shields_list_contains, MaizeGlow_left)
+
+config SHIELD_MAIZEGLOW_RIGHT
+    def_bool $(shields_list_contains, MaizeGlow_right)
