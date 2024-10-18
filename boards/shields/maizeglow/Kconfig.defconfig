@@ -16,17 +16,6 @@ if SHIELD_MAIZEGLOW_LEFT || SHIELD_MAIZEGLOW_RIGHT
 config ZMK_SPLIT
     default y
 
-config MAIZEGLOW_PM
-    bool "MaizeGlow Automatic Power Management"
-    default y
-    select ZMK_POWER_DOMAINS
-    select ZMK_POWER_DOMAINS_DYNAMIC_DEFAULT
-    select PM_DEVICE
-    select PM_DEVICE_POWER_DOMAIN
-    select PM_DEVICE_RUNTIME
-    select POWER_DOMAIN
-    select POWER_DOMAIN_GPIO
-
 config MAIZEGLOW_RGB_UNDERGLOW
     bool "MaizeGlow per Key RGB LEDs"
     default y
