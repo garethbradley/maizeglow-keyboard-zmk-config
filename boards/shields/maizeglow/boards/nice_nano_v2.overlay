@@ -26,6 +26,9 @@
     led_strip: ws2812@0 {
         compatible = "worldsemi,ws2812-spi";
 
+        power-domain = <&rgb_power>;
+        zephyr,pm-device-runtime-auto;
+
         /* SPI */
         reg = <0>; /* ignored, but necessary for SPI bindings */
         spi-max-frequency = <4000000>;
@@ -42,5 +45,23 @@
 / {
     chosen {
         zmk,underglow = &led_strip;
+    };
+
+    rgb_power: rgb_power {
+        compatible = "power-domain-gpio";
+        startup-delay-us = <200>;
+        off-on-delay-us = <2000>;
+        enable-gpios = <&pro_micro 8 GPIO_ACTIVE_HIGH>;
+        power-domain = <&core_power_domain>;
+        zephyr,pm-device-runtime-auto;
+    };
+
+    oled_power: oled_power {
+        compatible = "power-domain-gpio";
+        startup-delay-us = <2000>; // if this value is too low the OLED will not turn on, the MOSFET will turn on the power but the display will not show anything  
+        off-on-delay-us = <2000>; // if this value is too low the OLED will not turn on, see above (startup-delay-us)
+        enable-gpios = <&pro_micro 14 GPIO_ACTIVE_HIGH>;
+        power-domain = <&core_power_domain>;
+        zephyr,pm-device-runtime-auto;
     };
 };
