@@ -105,7 +105,7 @@ nice_view_spi: &spi0 {
 
     rgb_power: rgb_power {
         compatible = "power-domain-gpio";
-        startup-delay-us = <200>;
+        startup-delay-us = <2000>;
         off-on-delay-us = <2000>;
         enable-gpios = <&pro_micro 8 GPIO_ACTIVE_HIGH>;
         power-domain = <&core_power_domain>;
