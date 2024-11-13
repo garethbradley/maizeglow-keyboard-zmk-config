@@ -89,7 +89,7 @@ nice_view_spi: &spi0 {
     pinctrl-1 = <&spi0_sleep>;
     pinctrl-names = "default", "sleep";
     cs-gpios = <&pro_micro 1 GPIO_ACTIVE_HIGH>; // Not the default 1
-    power-domain = <&oled_power>;
+    // power-domain = <&oled_power>;
 };
 
 &pro_micro_i2c {
@@ -100,6 +100,7 @@ nice_view_spi: &spi0 {
 / {
     chosen {
         zmk,underglow = &led_strip;
+        zmk,display-default-power-domain = &oled_power;
     };
 
     rgb_power: rgb_power {
