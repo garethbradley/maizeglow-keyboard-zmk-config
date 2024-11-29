@@ -15,6 +15,10 @@
 		zmk,underglow = &led_strip;
 		zmk,display-default-power-domain = &oled_power;
 	};
+
+    rgb_power_domain: rgb_power_domain {
+        compatible = "power-domain";
+    };    
 	
 	rgb_power: rgb_power {
 		compatible = "power-domain-gpio";
@@ -118,10 +122,6 @@
 		, <&pro_micro 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 		;
 	};
-};
-
-rgb_power_domain: rgb_power_domain {
-    compatible = "power-domain";
 };
 
 &pinctrl {
