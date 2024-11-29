@@ -16,7 +16,7 @@
 		zmk,display-default-power-domain = &oled_power;
 	};
 
-    rgb_power_domain: rgb_power_domain {
+    rgb_power_domain: gpio_domain@4 {
         compatible = "power-domain";
     };    
 	
