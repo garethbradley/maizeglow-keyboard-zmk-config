@@ -27,7 +27,6 @@
 
         behaviors {
                 // #include "os/tap_dance.keymap"
-                #include <dt-bindings/zmk/bt.h>
         };
 
         conditional_layers {
