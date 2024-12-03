@@ -6,7 +6,7 @@
 #include <dt-bindings/zmk/rgb.h>
 
 // NICE!VIEW CONFIG
-#include "settings/nice_view.keymap"
+// #include "settings/nice_view.keymap"
 
 // HELPERS
 #include "helpers/combos.keymap"
