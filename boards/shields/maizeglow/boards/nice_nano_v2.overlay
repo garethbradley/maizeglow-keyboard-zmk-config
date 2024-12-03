@@ -80,7 +80,6 @@ nice_view_spi: &spi0 {
 / {
 	chosen {
 		zmk,underglow = &led_strip;
-		// zmk,default-power-domain = &rgb_power;
 		zmk,display-default-power-domain = &oled_power;
 	};
 
