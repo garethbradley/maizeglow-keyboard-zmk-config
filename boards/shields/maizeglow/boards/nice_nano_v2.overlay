@@ -93,7 +93,7 @@ nice_view_spi: &spi0 {
     };
     
     oled_power: oled_power {
-        compatible = "power-domain-gpio", "power-domain";
+        compatible = "power-domain-gpio";// , "power-domain";
         startup-delay-us = <2000>;// if this value is too low the OLED will not turn on, the MOSFET will turn on the power but the display will not show anything  
         off-on-delay-us = <2000>;// if this value is too low the OLED will not turn on, see above (startup-delay-us)
         enable-gpios = <&pro_micro 7 GPIO_ACTIVE_HIGH>;
