@@ -7,9 +7,9 @@ requires: [pro_micro]
 exposes: [i2c_oled]
 features:
   - keys
-  - display
   - underglow
-  - studio
+  # - display
+  # - studio
 siblings:
   - MaizeGlow_left
   - MaizeGlow_right
