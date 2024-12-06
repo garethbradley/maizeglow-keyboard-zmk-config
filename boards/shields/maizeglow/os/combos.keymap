@@ -2,6 +2,9 @@
 COMBO_ALL(esc_one_two, &kp ESC, 1 2)
 COMBO_ALL(esc_null_one, &kp ESC, 9 10)
 
+// BACKSPACE
+COMBO_ALL(bspc_left, &kp BSPC, 4 5)
+
 // BLUETOOTH CLEAR
 COMBO(bt_clr, &bt BT_CLR, 24 29, 4)
 
