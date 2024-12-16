@@ -1,4 +1,5 @@
 #include "mpr121.h"
+#include <stdint.h>
 #include <zephyr/kernel.h>
 #include <zephyr/drivers/i2c.h>
 #include <zephyr/logging/log.h>
