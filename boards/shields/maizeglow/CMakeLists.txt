@@ -1,1 +1,1 @@
-target_sources(app PRIVATE src/main.c src/mpr121.c)
+target_sources(app PRIVATE mpr121.c)
