@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.dxf": "plaintext",
+        "mpr121.h": "c"
+    }
+}
