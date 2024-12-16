@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "*.dxf": "plaintext",
-        "mpr121.h": "c"
+        "mpr121.h": "c",
+        "stddef.h": "c"
     }
 }

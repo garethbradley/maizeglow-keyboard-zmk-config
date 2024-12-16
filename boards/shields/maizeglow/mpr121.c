@@ -1,5 +1,6 @@
 #include "mpr121.h"
-#include <stdint.h>
+#include <stdint.h>  // For uint8_t
+#include <stddef.h>  // For size_t
 #include <zephyr/kernel.h>
 #include <zephyr/drivers/i2c.h>
 #include <zephyr/logging/log.h>
