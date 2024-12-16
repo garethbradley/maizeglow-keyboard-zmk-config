@@ -1,19 +1,19 @@
+#include "mpr121.h"
 #include <zephyr/kernel.h>
 #include <zephyr/drivers/i2c.h>
-#include "mpr121.h"
 #include <zephyr/logging/log.h>
 
-LOG_MODULE_REGISTER(zmk, CONFIG_ZMK_LOG_LEVEL);
+LOG_MODULE_REGISTER(mpr121);
 
 #define I2C_DEV DT_LABEL(DT_NODELABEL(i2c0))
 #define MPR121_ADDR 0x5A
 
 static const struct device *i2c_dev;
 
-static int mpr121_init(void) {
+int mpr121_init(void) {
     i2c_dev = device_get_binding(I2C_DEV);
     if (!i2c_dev) {
-        printk("I2C: Device driver not found.\n");
+        LOG_ERR("I2C: Device driver not found.");
         return -ENODEV;
     }
 
@@ -21,18 +21,18 @@ static int mpr121_init(void) {
     // uint8_t config_data[] = {0x80, 0x63}; // Example configuration data
     // int ret = i2c_write(i2c_dev, config_data, sizeof(config_data), MPR121_ADDR);
     // if (ret) {
-    //     printk("Failed to configure MPR121\n");
+    //     LOG_ERR("Failed to configure MPR121");
     //     return ret;
     // }
 
-    LOG_INF("MPR121 initialized successfully.\n");
+    LOG_INF("MPR121 initialized successfully.");
     return 0;
 }
 
-static int mpr121_read(uint8_t reg, uint8_t *data, size_t len) {
+int mpr121_read(uint8_t reg, uint8_t *data, size_t len) {
     int ret = i2c_burst_read(i2c_dev, MPR121_ADDR, reg, data, len);
     if (ret) {
-        LOG_ERR("Failed to read from MPR121\n");
+        LOG_ERR("Failed to read from MPR121");
         return ret;
     }
     return 0;
@@ -41,7 +41,7 @@ static int mpr121_read(uint8_t reg, uint8_t *data, size_t len) {
 void main(void) {
     int ret = mpr121_init();
     if (ret) {
-        LOG_ERR("MPR121 initialization failed\n");
+        LOG_ERR("MPR121 initialization failed");
         return;
     }
 
@@ -50,7 +50,7 @@ void main(void) {
         ret = mpr121_read(0x00, touch_status, sizeof(touch_status));
         if (ret == 0) {
             uint16_t touch = (touch_status[1] << 8) | touch_status[0];
-            LOG_INF("Touch status: 0x%04x\n", touch);
+            LOG_INF("Touch status: 0x%04x", touch);
         }
         k_sleep(K_MSEC(100));
     }
