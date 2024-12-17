@@ -6,6 +6,9 @@ manifest:
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
     - name: petejohanson
       url-base: https://github.com/petejohanson
+      
+    - name: zephyrproject-rtos
+      url-base: https://github.com/zephyrproject-rtos
   projects:
     # - name: zmk
     #   remote: zmkfirmware
@@ -16,4 +19,4 @@ manifest:
       revision: power/domains-and-device-runtime
       import: app/west.yml
   self:
-    path: config
+    path: .
