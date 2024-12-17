@@ -1,3 +1,3 @@
-find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
+zephyr_library_amend()
 
-target_sources(app PRIVATE mpr121.c)
+zephyr_library_sources_ifdef(CONFIG_MPR121 mpr121.c)
