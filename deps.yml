@@ -1,0 +1,8 @@
+manifest:
+  remotes:
+    - name: garethbradley
+      url-base: https://github.com/garethbradley
+  projects:
+    - name: zmk-mpr121-input-module
+      remote: garethbradley
+      revision: main
