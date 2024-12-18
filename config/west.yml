@@ -7,8 +7,6 @@ manifest:
     - name: petejohanson
       url-base: https://github.com/petejohanson
       
-    - name: zephyrproject-rtos
-      url-base: https://github.com/zephyrproject-rtos
   projects:
     # - name: zmk
     #   remote: zmkfirmware
