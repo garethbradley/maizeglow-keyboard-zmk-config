@@ -6,6 +6,9 @@ manifest:
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
     - name: petejohanson
       url-base: https://github.com/petejohanson
+
+    - name: garethbradley
+      url-base: https://github.com/garethbradley
       
   projects:
     # - name: zmk
@@ -16,5 +19,9 @@ manifest:
       remote: petejohanson
       revision: power/domains-and-device-runtime
       import: app/west.yml
+
+    - name: zmk-mpr121-input-module
+      remote: garethbradley
+      revision: main
   self:
     path: .
