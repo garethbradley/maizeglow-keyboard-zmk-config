@@ -19,8 +19,6 @@
 	pinctrl-1 = <&i2c1_sleep>;
 	pinctrl-names = "default", "sleep";
 
-	reg = <0x40004000>;
-
 	mpr121: mpr121@5a {
 		compatible = "nxp,mpr121";
 		status = "okay";
