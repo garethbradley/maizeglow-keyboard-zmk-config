@@ -13,9 +13,13 @@
 	compatible = "nordic,nrf-twim";
 	label = "I2C_1";
 
-    sda-pin = <22>;
-    scl-pin = <24>;
-	clock-frequency = <100000>; 
+	// clock-frequency = <100000>; 
+
+	pinctrl-0 = <&i2c1_default>;
+	pinctrl-1 = <&i2c1_sleep>;
+	pinctrl-names = "default", "sleep";
+
+	reg = <0x40004000>;
 
 	mpr121: mpr121@5a {
 		compatible = "nxp,mpr121";
@@ -25,9 +29,7 @@
 		
 		// reg = <0x40004000>;
 		
-		// pinctrl-0 = <&i2c1_default>;
-		// pinctrl-1 = <&i2c1_sleep>;
-		// pinctrl-names = "default", "sleep";
+		
 	};
 };
 
