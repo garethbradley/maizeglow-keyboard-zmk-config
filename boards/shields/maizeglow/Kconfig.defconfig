@@ -42,4 +42,10 @@ config MAIZEGLOW_RGB_UNDERGLOW
     select ZMK_RGB_UNDERGLOW_AUTO_OFF_IDLE
     select ZMK_RGB_UNDERGLOW_AUTO_OFF_USB
 
+config MAIZEGLOW_MPR121
+    bool "MaizeGlow capacitive touch via MPR121"
+    default y
+    select I2C
+    select INPUT
+
 endif
