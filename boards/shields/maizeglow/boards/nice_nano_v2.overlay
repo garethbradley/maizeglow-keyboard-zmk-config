@@ -93,7 +93,7 @@ nice_view_spi: &spi0 {
 // 	status = "okay";
 // };
 
-&mpr121: i2c1@40004000 {
+&i2c1: mpr121@40004000 {
 	compatible = "nxp,mpr121";
 	reg = <0x40004000>;
 	status = "okay";
