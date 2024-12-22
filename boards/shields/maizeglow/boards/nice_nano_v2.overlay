@@ -30,6 +30,22 @@
 			low-power-enable;
 		};
 	};
+	
+	/* configuration for i2c0 device, default state */
+	i2c0_default: i2c0_default {
+		group1 {
+			psels = <NRF_PSEL(TWIM_SDA, 0, 22)>,
+			<NRF_PSEL(TWIM_SCL, 0, 24)>;
+		};
+	};
+	
+	i2c0_sleep: i2c0_sleep {
+		group1 {
+			psels = <NRF_PSEL(TWIM_SDA, 0, 22)>,
+			<NRF_PSEL(TWIM_SCL, 0, 24)>;
+			low-power-enable;
+		};
+	};
 };
 
 &spi3 {
@@ -72,8 +88,24 @@ nice_view_spi: &spi0 {
 	// power-domain = <&oled_power>;
 };
 
-&pro_micro_i2c {
-	status = "disabled";
+// &pro_micro_i2c {
+// 	// status = "disabled";
+// 	status = "okay";
+// };
+
+&i2c0 {
+    status = "okay";
+    
+    mpr121: mpr121@2a {
+        compatible = "nxp,mpr121";
+        reg = <0x2a>;
+        status = "okay";
+        // dr-gpios = <&vik_conn 5 (GPIO_ACTIVE_HIGH)>; // DR pin on cirque is always &vik_conn 5
+
+        // sensitivity = "4x";
+        // sleep;
+        // no-taps;
+    };
 };
 
 
@@ -82,22 +114,32 @@ nice_view_spi: &spi0 {
 		zmk,underglow = &led_strip;
 		zmk,display-default-power-domain = &oled_power;
 	};
+	
+	rgb_power: rgb_power {
+		compatible = "power-domain-gpio";// , "power-domain";
+		startup-delay-us = <200>;
+		off-on-delay-us = <2000>;
+		enable-gpios = <&pro_micro 6 GPIO_ACTIVE_HIGH>;
+		power-domain = <&core_power_domain>;
+		zephyr,pm-device-runtime-auto;
+	};
+	
+	oled_power: oled_power {
+		compatible = "power-domain-gpio", "power-domain";
+		startup-delay-us = <2000>;// if this value is too low the OLED will not turn on, the MOSFET will turn on the power but the display will not show anything  
+		off-on-delay-us = <2000>;// if this value is too low the OLED will not turn on, see above (startup-delay-us)
+		enable-gpios = <&pro_micro 7 GPIO_ACTIVE_HIGH>;
+		power-domain = <&core_power_domain>;
+		zephyr,pm-device-runtime-auto;
+	};
 
-    rgb_power: rgb_power {
-        compatible = "power-domain-gpio";// , "power-domain";
-        startup-delay-us = <200>;
-        off-on-delay-us = <2000>;
-        enable-gpios = <&pro_micro 6 GPIO_ACTIVE_HIGH>;
-        power-domain = <&core_power_domain>;
-        zephyr,pm-device-runtime-auto;
-    };
-    
-    oled_power: oled_power {
-        compatible = "power-domain-gpio", "power-domain";
-        startup-delay-us = <2000>;// if this value is too low the OLED will not turn on, the MOSFET will turn on the power but the display will not show anything  
-        off-on-delay-us = <2000>;// if this value is too low the OLED will not turn on, see above (startup-delay-us)
-        enable-gpios = <&pro_micro 7 GPIO_ACTIVE_HIGH>;
-        power-domain = <&core_power_domain>;
-        zephyr,pm-device-runtime-auto;
+	mpr121_input {
+        compatible = "zmk,input-listener";
+        device = <&mpr121>;
+
+        // Options for cirque, to be defined in the keyboard shield
+        // xy-swap;
+        // y-invert;
+        // x-invert;
     };
 };
