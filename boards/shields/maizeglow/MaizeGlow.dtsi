@@ -8,6 +8,29 @@
 #include <physical_layouts.dtsi>
 #include <dt-bindings/led/led.h>
 
+&i2c1 {
+	status = "disabled";
+	compatible = "nordic,nrf-twim";
+	label = "I2C_1";
+
+    sda-pin = <22>;
+    scl-pin = <24>;
+	clock-frequency = <100000>; 
+
+	mpr121: mpr121@5a {
+		compatible = "nxp,mpr121";
+		status = "okay";
+		reg = <0x5a>;
+		label = "MPR121";
+		
+		// reg = <0x40004000>;
+		
+		// pinctrl-0 = <&i2c1_default>;
+		// pinctrl-1 = <&i2c1_sleep>;
+		// pinctrl-names = "default", "sleep";
+	};
+};
+
 / {
 	chosen {
 		zephyr,code-partition = &code_partition;
@@ -99,5 +122,15 @@
 		, <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 		, <&pro_micro 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 		;
+	};
+
+	mpr121_input {
+		compatible = "zmk,input-listener";
+		device = <&mpr121>;
+		
+		// Options for cirque, to be defined in the keyboard shield
+		// xy-swap;
+		// y-invert;
+		// x-invert;
 	};
 };
