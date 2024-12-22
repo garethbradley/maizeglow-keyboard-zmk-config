@@ -93,18 +93,26 @@ nice_view_spi: &spi0 {
 // 	status = "okay";
 // };
 &i2c1 {
-	compatible = "nxp,mpr121";
-	// reg = <0x40004000>;
 	status = "okay";
-	
-	pinctrl-0 = <&i2c1_default>;
-	pinctrl-1 = <&i2c1_sleep>;
-	pinctrl-names = "default", "sleep";
-	// dr-gpios = <&vik_conn 5 (GPIO_ACTIVE_HIGH)>; // DR pin on cirque is always &vik_conn 5
-	
-	// sensitivity = "4x";
-	// sleep;
-	// no-taps;
+	mpr121: mpr121@5a {
+		compatible = "nxp,mpr121";
+		reg = <0x5a>;
+		label = "MPR121";
+		
+		// reg = <0x40004000>;
+		status = "okay";
+		
+		pinctrl-0 = <&i2c1_default>;
+		pinctrl-1 = <&i2c1_sleep>;
+		pinctrl-names = "default", "sleep";
+	};
+};
+
+// dr-gpios = <&vik_conn 5 (GPIO_ACTIVE_HIGH)>; // DR pin on cirque is always &vik_conn 5
+
+// sensitivity = "4x";
+// sleep;
+// no-taps;
 };
 
 
@@ -134,7 +142,7 @@ nice_view_spi: &spi0 {
 	
 	mpr121_input {
 		compatible = "zmk,input-listener";
-		device = <&i2c1>;
+		device = <&mpr121>;
 		
 		// Options for cirque, to be defined in the keyboard shield
 		// xy-swap;
