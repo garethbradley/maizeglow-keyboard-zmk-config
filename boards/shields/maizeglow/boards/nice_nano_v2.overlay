@@ -113,7 +113,7 @@ nice_view_spi: &spi0 {
 // sensitivity = "4x";
 // sleep;
 // no-taps;
-};
+// };
 
 
 / {
