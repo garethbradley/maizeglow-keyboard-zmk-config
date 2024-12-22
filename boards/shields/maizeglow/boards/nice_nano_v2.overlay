@@ -92,7 +92,6 @@ nice_view_spi: &spi0 {
 // 	// status = "disabled";
 // 	status = "okay";
 // };
-
 &i2c1 {
 	compatible = "nxp,mpr121";
 	// reg = <0x40004000>;
@@ -135,7 +134,7 @@ nice_view_spi: &spi0 {
 	
 	mpr121_input {
 		compatible = "zmk,input-listener";
-		device = <&mpr121>;
+		device = <&i2c1>;
 		
 		// Options for cirque, to be defined in the keyboard shield
 		// xy-swap;
