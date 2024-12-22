@@ -9,11 +9,11 @@
 #include <dt-bindings/led/led.h>
 
 &i2c1 {
-	status = "disabled";
+	status = "okay";
 	compatible = "nordic,nrf-twim";
 	label = "I2C_1";
 
-	// clock-frequency = <100000>; 
+	clock-frequency = <100000>; 
 
 	pinctrl-0 = <&i2c1_default>;
 	pinctrl-1 = <&i2c1_sleep>;
