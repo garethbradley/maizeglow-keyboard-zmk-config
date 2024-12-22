@@ -93,7 +93,7 @@ nice_view_spi: &spi0 {
 // 	status = "okay";
 // };
 
-&i2c0 {
+&i2c1 {
     status = "okay";
     
     mpr121: mpr121@2a {
