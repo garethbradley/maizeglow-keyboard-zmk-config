@@ -32,20 +32,20 @@
 	};
 	
 	/* configuration for i2c0 device, default state */
-	i2c1_default: i2c1_default {
-		group1 {
-			psels = <NRF_PSEL(TWIM_SDA, 0, 22)>,
-			<NRF_PSEL(TWIM_SCL, 0, 24)>;
-		};
-	};
+	// i2c1_default: i2c1_default {
+	// 	group1 {
+	// 		psels = <NRF_PSEL(TWIM_SDA, 0, 22)>,
+	// 		<NRF_PSEL(TWIM_SCL, 0, 24)>;
+	// 	};
+	// };
 	
-	i2c1_sleep: i2c1_sleep {
-		group1 {
-			psels = <NRF_PSEL(TWIM_SDA, 0, 22)>,
-			<NRF_PSEL(TWIM_SCL, 0, 24)>;
-			low-power-enable;
-		};
-	};
+	// i2c1_sleep: i2c1_sleep {
+	// 	group1 {
+	// 		psels = <NRF_PSEL(TWIM_SDA, 0, 22)>,
+	// 		<NRF_PSEL(TWIM_SCL, 0, 24)>;
+	// 		low-power-enable;
+	// 	};
+	// };
 };
 
 &spi3 {
@@ -94,17 +94,20 @@ nice_view_spi: &spi0 {
 // };
 &i2c1 {
 	status = "okay";
+    sda-pin = <22>;
+    scl-pin = <24>;
+
 	mpr121: mpr121@5a {
 		compatible = "nxp,mpr121";
+		status = "okay";
 		reg = <0x5a>;
 		label = "MPR121";
 		
 		// reg = <0x40004000>;
-		status = "okay";
 		
-		pinctrl-0 = <&i2c1_default>;
-		pinctrl-1 = <&i2c1_sleep>;
-		pinctrl-names = "default", "sleep";
+		// pinctrl-0 = <&i2c1_default>;
+		// pinctrl-1 = <&i2c1_sleep>;
+		// pinctrl-names = "default", "sleep";
 	};
 };
 
