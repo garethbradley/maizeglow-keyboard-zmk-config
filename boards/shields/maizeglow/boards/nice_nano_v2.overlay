@@ -107,7 +107,6 @@ nice_view_spi: &spi0 {
 	// sleep;
 	// no-taps;
 };
-};
 
 
 / {
