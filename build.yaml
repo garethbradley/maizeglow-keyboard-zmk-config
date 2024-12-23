@@ -22,10 +22,10 @@ include:
     shield: MaizeGlow_left nice_view
     # snippet: studio-rpc-usb-uart
     snippet: zmk-usb-logging
-    cmake-args: -DCONFIG_ZMK_DISPLAY_BLANK_ON_IDLE=n -DCONFIG_LOG=y -DCONFIG_LOG_DEFAULT_LEVEL=3 -DCONFIG_INPUT_LOG_LEVEL_DEFAULT=4
+    cmake-args: -DCONFIG_ZMK_DISPLAY_BLANK_ON_IDLE=n -DCONFIG_LOG=y -DCONFIG_LOG_DEFAULT_LEVEL=3 -DCONFIG_INPUT_LOG_LEVEL=4
 
   - board: nice_nano_v2
     shield: MaizeGlow_right nice_view
     # snippet: studio-rpc-usb-uart
     snippet: zmk-usb-logging
-    cmake-args: -DCONFIG_ZMK_DISPLAY_BLANK_ON_IDLE=n -DCONFIG_LOG=y -DCONFIG_LOG_DEFAULT_LEVEL=3 -DCONFIG_INPUT_LOG_LEVEL_DEFAULT=4
+    cmake-args: -DCONFIG_ZMK_DISPLAY_BLANK_ON_IDLE=n -DCONFIG_LOG=y -DCONFIG_LOG_DEFAULT_LEVEL=3 -DCONFIG_INPUT_LOG_LEVEL=4
