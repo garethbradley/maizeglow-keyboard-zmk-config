@@ -8,6 +8,9 @@ COMBO_ALL(bspc_left, &kp BSPC, 4 5)
 // BLUETOOTH CLEAR
 COMBO(bt_clr, &bt BT_CLR, 24 29, 4)
 
+// RESET
+COMBO_ALL(reset_r_e_s, &sys_reset, 2 3 14)
+
 // BUTTON INDEXES
 // | 0  | 1  | 2  | 3  | 4  | 5  | ___ | 6  | 7  | 8  | 9  | 10 | 11 |
 // | 12 | 13 | 14 | 15 | 16 | 17 | ___ | 18 | 19 | 20 | 21 | 22 | 23 |
