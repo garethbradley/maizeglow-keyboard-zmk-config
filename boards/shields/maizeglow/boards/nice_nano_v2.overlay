@@ -111,8 +111,8 @@ nice_view_spi: &spi0 {
 	
 	rgb_power: rgb_power {
 		compatible = "power-domain-gpio";// , "power-domain";
-		startup-delay-us = <200>;
-		off-on-delay-us = <2000>;
+		startup-delay-us = <800>;
+		off-on-delay-us = <500>;
 		enable-gpios = <&pro_micro 6 GPIO_ACTIVE_HIGH>;
 		power-domain = <&core_power_domain>;
 		zephyr,pm-device-runtime-auto;
