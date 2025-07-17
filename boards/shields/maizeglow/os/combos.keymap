@@ -5,6 +5,9 @@ COMBO_ALL(esc_null_one, &kp ESC, 9 10)
 // BLUETOOTH CLEAR
 COMBO(bt_clr, &bt BT_CLR, 24 29, 4)
 
+// FORMAT DOC
+COMBO_ALL(code_format_doc, &zed_code_format_doc, 15 16)
+
 // BUTTON INDEXES
 // | 0  | 1  | 2  | 3  | 4  | 5  | ___ | 6  | 7  | 8  | 9  | 10 | 11 |
 // | 12 | 13 | 14 | 15 | 16 | 17 | ___ | 18 | 19 | 20 | 21 | 22 | 23 |
