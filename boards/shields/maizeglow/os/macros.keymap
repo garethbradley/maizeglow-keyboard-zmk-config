@@ -79,3 +79,11 @@ code_format_doc: code_format_doc {
                 , <&macro_release &kp LEFT_ALT>
                 , <&macro_release &kp LEFT_SHIFT>;
 };
+
+screenshot: screenshot {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&macro_press &kp LSHFT &kp LGUI>
+             , <&macro_tap &kp N4>
+             , <&macro_release &kp LSHFT &kp LGUI>;
+};
