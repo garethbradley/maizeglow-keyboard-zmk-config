@@ -44,3 +44,25 @@
         zmk,underglow = &led_strip;
     };
 };
+
+/*
+ * The LEDs run from RAW and are grounded through a low-side MOSFET (LED_DRAIN)
+ * whose gate is on P1.00 (VRGB). Point ext-power at that pin instead of the
+ * nice!nano's default P0.13 (VCC pin, unused on this PCB) so the gate is
+ * actively driven and underglow on/off switches the LED power.
+ */
+&{/EXT_POWER} {
+    control-gpios = <&gpio1 0 GPIO_ACTIVE_HIGH>;
+};
+
+/*
+ * The nice!view's VCC is wired to P0.11 (VLCD). Hold it high from boot so
+ * the display is always powered, independent of the LED power switch.
+ */
+&gpio0 {
+    nice_view_power {
+        gpio-hog;
+        gpios = <11 GPIO_ACTIVE_HIGH>;
+        output-high;
+    };
+};
