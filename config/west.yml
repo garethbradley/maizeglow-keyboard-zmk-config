@@ -11,7 +11,7 @@ manifest:
     # Branch: garethbradley/zmk@maizeglow
     - name: zmk
       remote: garethbradley
-      revision: 07151788dafcaa60ee24454556116da92fec3da2
+      revision: 1f5ec514ec1eadbc01160efa8b35955c5caa8d2c
       import: app/west.yml
   self:
     path: config
