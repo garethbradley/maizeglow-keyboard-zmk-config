@@ -2,4 +2,5 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
+    # garethbradley/zmk@maizeglow (Node 24 actions, ubuntu-24.04); keep in sync with config/west.yml
+    uses: garethbradley/zmk/.github/workflows/build-user-config.yml@5a035a4d353d6eab7427446b189cba8a50a4cf1a
