@@ -20,6 +20,9 @@
 // KEYS
 #include "os/keys.keymap"
 
+// PER-KEY RGB
+#include "settings/rgb_layers.keymap"
+
 // KEYBOARD
 / {
         macros {

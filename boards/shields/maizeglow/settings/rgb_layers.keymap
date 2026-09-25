@@ -1,0 +1,107 @@
+/*
+ * Per-key RGB, drawn over the current underglow effect (CONFIG_ZMK_RGB_UNDERGLOW_LAYER_OVERLAY).
+ * BASE has no map, so it shows the normal effect; holding a layer paints its keys by group.
+ *
+ * Each group keeps the same colour on every layer. Use &trans on a key to let the effect show
+ * through. Use UG_OFF (not &none, which isn't built on the right half) to turn a key dark.
+ */
+
+#define UG_OFF   &ug 0x000000
+#define UG_NAV   &ug 0x00FFFF  // cyan:      arrows, Home/End/PgUp/PgDn, tab switching
+#define UG_NUM   &ug 0xFFC000  // yellow:    digits, keypad digits
+#define UG_SYM   &ug 0x8000FF  // purple:    symbols, brackets, maths operators
+#define UG_FN    &ug 0x0000FF  // blue:      F-keys
+#define UG_EDIT  &ug 0xFF5000  // orange:    Esc, Tab, Bksp, Del, Ins, Enter, Space
+#define UG_MOD   &ug 0x404040  // dim white: Ctrl, Shift, Alt, GUI
+#define UG_LYR   &ug 0xFF0080  // pink:      layer keys (&mo, &to)
+#define UG_SYS   &ug 0x00FF00  // green:     media, brightness, locks, RGB, language, screenshot
+#define UG_CONN  &ug 0xFFFFFF  // white:     Bluetooth profiles, USB/BLE output
+#define UG_DANGR &ug 0xFF0000  // red:       clear all pairings, log off
+
+/ {
+    underglow-layer {
+        lower_rgb {
+            layer-id = <LOWER>;
+            bindings = <
+    //  Esc       1         2         3         4         5            6         7         8         9         0         Screenshot
+        UG_EDIT   UG_NUM    UG_NUM    UG_NUM    UG_NUM    UG_NUM       UG_NUM    UG_NUM    UG_NUM    UG_NUM    UG_NUM    UG_SYS
+    //  Ctrl      >NUMBER   TabPrev   Up        EXTRA     UBER         =         -         Up        [         ]         Bslash
+        UG_MOD    UG_LYR    UG_NAV    UG_NAV    UG_LYR    UG_LYR       UG_SYM    UG_SYM    UG_NAV    UG_SYM    UG_SYM    UG_SYM
+    //  Shift     -         Left      Down      Right     >PLAYER      -         Left      Down      Right     Ins       Del
+        UG_MOD    UG_OFF    UG_NAV    UG_NAV    UG_NAV    UG_LYR       UG_OFF    UG_NAV    UG_NAV    UG_NAV    UG_EDIT   UG_EDIT
+    //                                Alt       LOWER     Space        Enter     RAlt      GUI
+                                      UG_MOD    UG_LYR    UG_EDIT      UG_EDIT   UG_MOD    UG_MOD
+            >;
+        };
+
+        raise_rgb {
+            layer-id = <RAISE>;
+            bindings = <
+    //  ~         !         @         #         $         %            ^         &         *         (         )         Bksp
+        UG_SYM    UG_SYM    UG_SYM    UG_SYM    UG_SYM    UG_SYM       UG_SYM    UG_SYM    UG_SYM    UG_SYM    UG_SYM    UG_EDIT
+    //  Ctrl      F1        F2        F3        F4        F5           F6        _         +         {         }         |
+        UG_MOD    UG_FN     UG_FN     UG_FN     UG_FN     UG_FN        UG_FN     UG_SYM    UG_SYM    UG_SYM    UG_SYM    UG_SYM
+    //  Shift     F7        F8        F9        F10       F11          F12       Home      PgDn      PgUp      End       Del
+        UG_MOD    UG_FN     UG_FN     UG_FN     UG_FN     UG_FN        UG_FN     UG_NAV    UG_NAV    UG_NAV    UG_NAV    UG_EDIT
+    //                                Alt       RAlt      Space        Enter     RAISE     GUI
+                                      UG_MOD    UG_MOD    UG_EDIT      UG_EDIT   UG_LYR    UG_MOD
+            >;
+        };
+
+        number_rgb {
+            layer-id = <NUMBER>;
+            bindings = <
+    //  NumLk     /         7         8         9         *            -         -         -         -         -         Bksp
+        UG_SYS    UG_SYM    UG_NUM    UG_NUM    UG_NUM    UG_SYM       UG_OFF    UG_OFF    UG_OFF    UG_OFF    UG_OFF    UG_EDIT
+    //  Ctrl      -         4         5         6         -            -         -         -         -         -         -
+        UG_MOD    UG_OFF    UG_NUM    UG_NUM    UG_NUM    UG_SYM       UG_OFF    UG_OFF    UG_OFF    UG_OFF    UG_OFF    UG_OFF
+    //  >BASE     Summary   1         2         3         +            -         Left      Down      Up        Right     Del
+        UG_LYR    UG_SYS    UG_NUM    UG_NUM    UG_NUM    UG_SYM       UG_OFF    UG_NAV    UG_NAV    UG_NAV    UG_NAV    UG_EDIT
+    //                                0         .         Space        Enter     -         -
+                                      UG_NUM    UG_NUM    UG_EDIT      UG_EDIT   UG_OFF    UG_OFF
+            >;
+        };
+
+        extra_rgb {
+            layer-id = <EXTRA>;
+            bindings = <
+    //  BT0       Bri+      CapsLk    ScrLk     OutTog    PrtSc        -         -         -         -         -         -
+        UG_CONN   UG_SYS    UG_SYS    UG_SYS    UG_CONN   UG_SYS       UG_OFF    UG_OFF    UG_OFF    UG_OFF    UG_OFF    UG_OFF
+    //  BT1       EN        LT        RU        -         BLE          -         -         -         -         -         -
+        UG_CONN   UG_SYS    UG_SYS    UG_SYS    UG_OFF    UG_CONN      UG_OFF    UG_OFF    UG_OFF    UG_OFF    UG_OFF    UG_OFF
+    //  BT2       Bri-      Home      Email     OutTog    USB          -         -         -         -         -         -
+        UG_CONN   UG_SYS    UG_SYS    UG_SYS    UG_CONN   UG_CONN      UG_OFF    UG_OFF    UG_OFF    UG_OFF    UG_OFF    UG_OFF
+    //                                BT3       BT4       BT5          -         -         -
+                                      UG_CONN   UG_CONN   UG_CONN      UG_OFF    UG_OFF    UG_OFF
+            >;
+        };
+
+        uber_rgb {
+            layer-id = <UBER>;
+            bindings = <
+    //  -         F13       F14       F15       F16       -            -         -         -         -         -         -
+        UG_OFF    UG_FN     UG_FN     UG_FN     UG_FN     UG_OFF       UG_OFF    UG_OFF    UG_OFF    UG_OFF    UG_OFF    UG_OFF
+    //  -         F17       F18       F19       F20       -            -         -         -         -         -         -
+        UG_OFF    UG_FN     UG_FN     UG_FN     UG_FN     UG_OFF       UG_OFF    UG_OFF    UG_OFF    UG_OFF    UG_OFF    UG_OFF
+    //  -         F21       F22       F23       F24       LogOff       -         -         -         -         -         -
+        UG_OFF    UG_FN     UG_FN     UG_FN     UG_FN     UG_DANGR     UG_OFF    UG_OFF    UG_OFF    UG_OFF    UG_OFF    UG_OFF
+    //                                -         -         -            -         -         -
+                                      UG_OFF    UG_OFF    UG_OFF       UG_OFF    UG_OFF    UG_OFF
+            >;
+        };
+
+        player_rgb {
+            layer-id = <PLAYER>;
+            bindings = <
+    //  BTPrev    BTClrAll  BTNext    -         -         -            -         -         -         -         -         -
+        UG_CONN   UG_DANGR  UG_CONN   UG_OFF    UG_OFF    UG_OFF       UG_OFF    UG_OFF    UG_OFF    UG_OFF    UG_OFF    UG_OFF
+    //  RGBEff-   RGBTog    RGBEff+   -         -         -            -         -         -         -         -         -
+        UG_SYS    UG_SYS    UG_SYS    UG_OFF    UG_OFF    UG_OFF       UG_OFF    UG_OFF    UG_OFF    UG_OFF    UG_OFF    UG_OFF
+    //  >BASE     -         -         Prev      Next      -            -         -         -         -         -         -
+        UG_LYR    UG_OFF    UG_OFF    UG_SYS    UG_SYS    UG_OFF       UG_OFF    UG_OFF    UG_OFF    UG_OFF    UG_OFF    UG_OFF
+    //                                Vol-      Play      Vol+         -         -         -
+                                      UG_SYS    UG_SYS    UG_SYS       UG_OFF    UG_OFF    UG_OFF
+            >;
+        };
+    };
+};
