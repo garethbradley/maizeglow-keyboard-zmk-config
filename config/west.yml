@@ -7,11 +7,11 @@ manifest:
     # Additional modules containing boards/shields/custom code can be listed here as well
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
   projects:
-    # ZMK v0.3 + darknao's per-key RGB (rgb-layer-24.12) + LED data-line parking.
+    # ZMK v0.3 + darknao's per-key RGB (rgb-layer-24.12) + LED data-line parking + layer overlay.
     # Branch: garethbradley/zmk@maizeglow
     - name: zmk
       remote: garethbradley
-      revision: 0c3281028769b5b8e043b0495205797e2889bccc
+      revision: fe9b018523182ac4969006c324e192016445af77
       import: app/west.yml
   self:
     path: config

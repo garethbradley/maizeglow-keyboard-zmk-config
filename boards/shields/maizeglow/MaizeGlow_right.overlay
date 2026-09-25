@@ -20,3 +20,20 @@
 		, <&pro_micro 21 GPIO_ACTIVE_HIGH>
 		;
 };
+
+/*
+ * Per-key RGB: keymap position of each LED in this half's chain (index = LED number).
+ * The chain snakes: top row inner->outer, middle outer->inner, bottom inner->outer,
+ * then thumbs near->home->far.
+ */
+/ {
+	underglow-layer {
+		compatible = "zmk,underglow-layer";
+		pixel-lookup
+			= <6>, <7>, <8>, <9>, <10>, <11>   // top
+			, <23>, <22>, <21>, <20>, <19>, <18>   // middle
+			, <30>, <31>, <32>, <33>, <34>, <35>   // bottom
+			, <41>, <40>, <39>   // thumbs
+			;
+	};
+};
